@@ -1,0 +1,22 @@
+.container
+{
+    display: flex;
+    justify-content: space-around;
+    background-color: grey;
+}
+
+.pokelist
+{
+    background-color: red;
+}
+
+.captured-bucket
+{
+    background-color: green;
+}
+
+.head-text
+{
+    color: blue;
+}
+
