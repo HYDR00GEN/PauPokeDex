@@ -1,29 +1,23 @@
 import { useEffect, useState } from "react";
 import { httpGetPokemon } from "./api/httpGetPokemon";
+import { Card } from "./components/Card";
 import DropDownMenu from "./components/DropDownMenu";
 import "./css/app.css";
+import Home from "./pages/Home";
 
 function App() {
-  const [poke, setPoke] = useState([]);
-  const [page, setPage] = useState([]);
-
-  useEffect(() => {
-    httpGetPokemon();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
       <div className="head-text">Pokedex Init</div>
       <input type="text" placeholder="find pokemon"></input>
       <DropDownMenu />
-
-      <div className="container">
-        <div className="pokelist"></div>
-        <div className="captured-bucket">
-          <div>captured n1</div>
-          <div>captured n2</div>
-          <div>captured n3</div>
-        </div>
+      <Home />
+      <div>
+        <div>captured n1</div>
+        <div>captured n2</div>
+        <div>captured n3</div>
       </div>
     </>
   );
