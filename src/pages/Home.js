@@ -30,7 +30,6 @@ const Home = ({ captList, captureHandler, releasePoke }) => {
   };
 
   console.log(poke);
-
   return (
     <>
       <div className="dashboard">

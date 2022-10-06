@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Captured } from "./components/Captured";
 import DropDownMenu from "./components/DropDownMenu";
 import "./css/app.css";
 import Home from "./pages/Home";
@@ -42,6 +43,7 @@ function App() {
       <div className="head-text">Pokedex Init</div>
       <input type="text" placeholder="find pokemon"></input>
       <DropDownMenu />
+      <Captured captureHandler={captureHandler} captList={captured} />
       <Home captureHandler={captureHandler} captList={captured} />
     </>
   );
