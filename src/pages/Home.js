@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import "../css/app.css";
 
-const Home = () => {
+const Home = ({ captList, captureHandler, releasePoke }) => {
   const [poke, setPoke] = useState([]);
   const [next, setNext] = useState("https://pokeapi.co/api/v2/pokemon");
 
@@ -29,7 +29,7 @@ const Home = () => {
       });
   };
 
-  //console.log(poke[3]?.types[1]?.type.name);
+  console.log(poke);
 
   return (
     <>
@@ -39,9 +39,11 @@ const Home = () => {
             <Card
               id={i.id}
               name={i.name}
-              img={i.sprites.front_default}
+              img={i.sprites.other.dream_world.front_default}
               type1={i.types[0].type.name}
               type2={i?.types[1]?.type.name}
+              onCapture={() => captureHandler(i)}
+              captureList={captList.some((p) => p.name === i.name)}
             />
           );
         })}
