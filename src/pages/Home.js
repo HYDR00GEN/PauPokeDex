@@ -28,7 +28,9 @@ const Home = () => {
         });
       });
   };
-  console.log(poke);
+
+  //console.log(poke[3]?.types[1]?.type.name);
+
   return (
     <>
       <div className="dashboard">
@@ -39,10 +41,12 @@ const Home = () => {
               name={i.name}
               img={i.sprites.front_default}
               type1={i.types[0].type.name}
+              type2={i?.types[1]?.type.name}
             />
           );
         })}
       </div>
+      <button onClick={catchPoke}>Load More Pokemons</button>
     </>
   );
 };
