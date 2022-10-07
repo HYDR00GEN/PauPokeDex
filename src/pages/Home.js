@@ -3,33 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import "../css/app.css";
 
-const Home = ({ captList, captureHandler, releasePoke }) => {
-  const [poke, setPoke] = useState([]);
-  const [next, setNext] = useState("https://pokeapi.co/api/v2/pokemon");
-
-  useEffect(() => {
-    catchPoke();
-  }, []);
-
-  const catchPoke = () => {
-    axios
-      .get(next)
-      .catch((err) => {
-        console.log(err);
-      })
-      .then((resp) => {
-        const res = resp.data.results.map((e) =>
-          axios.get(e.url).then((resp) => resp.data)
-        );
-        setNext(resp.data.next);
-
-        Promise.all(res).then((data) => {
-          setPoke((prevState) => [...prevState, ...data]);
-        });
-      });
-  };
-
-  console.log(poke);
+const Home = ({ captList, captureHandler, poke, catchPoke }) => {
   return (
     <>
       <div className="dashboard">
@@ -47,7 +21,9 @@ const Home = ({ captList, captureHandler, releasePoke }) => {
           );
         })}
       </div>
-      <button onClick={catchPoke}>Load More Pokemons</button>
+      <button id="add-pokemon" onClick={catchPoke}>
+        Load More Pokemons
+      </button>
     </>
   );
 };

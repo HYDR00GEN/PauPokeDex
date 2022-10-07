@@ -2,10 +2,14 @@
 
 Il tema dell'esercizio è riprodurre una minimale versione del Pokédex. I requisiti che ti diamo sono i seguenti:
 
-[] dalla homepage posso visualizzare la lista dei pokemon;
+[x] dalla homepage posso visualizzare la lista dei pokemon;
+[x] posso filtrare il pokedex per tutti.
+[x] filtrare per quelli catturati
+[x] dalla lista dei pokemon posso dire quali ho catturato
+[x] filtrare per non catturati
 [] posso cliccare su un qualsiasi pokemon e visualizzare la scheda dei dettagli del pokemon in questione;
-[] sia dai dettagli, sia dalla lista dei pokemon, posso dire quali ho catturato (salvando la lista dove preferisci);
-[] posso filtrare il pokedex per i pokemon non catturati, per quelli catturati o per tutti.
+[] sia dai dettagli posso dire quali ho catturato
+[] non catturati rimangono permanenti nel LS
 
 ## Bonus
 

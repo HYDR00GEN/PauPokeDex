@@ -1,5 +1,5 @@
 import React from "react";
-import { CaptureIcon } from "../assets/Icons";
+import { CaptureIcon, ReleaseIcon } from "../assets/Icons";
 
 const Card = ({ id, name, img, type1, type2, onCapture, captureList }) => {
   return (
@@ -13,7 +13,7 @@ const Card = ({ id, name, img, type1, type2, onCapture, captureList }) => {
       </div>
       <div>
         <button onClick={onCapture}>
-          <CaptureIcon />
+          {!captureList ? <CaptureIcon /> : <ReleaseIcon />}
         </button>
       </div>
     </div>
