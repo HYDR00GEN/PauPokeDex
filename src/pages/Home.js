@@ -1,31 +1,50 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
-import "../css/app.css";
+import React from "react";
+import DropDownMenu from "../components/DropDownMenu";
+import CardContainer from "../components/CardContainer";
+import { Captured } from "../components/Captured";
+import NotCaptured from "../components/NotCaptured";
 
-const Home = ({ captList, captureHandler, poke, catchPoke }) => {
+export const Home = ({
+  select,
+  setSelect,
+  captureHandler,
+  captured,
+  poke,
+  catchPoke,
+  notCaptured,
+}) => {
   return (
     <>
-      <div className="dashboard">
-        {poke.map((i) => {
-          return (
-            <Card
-              id={i.id}
-              name={i.name}
-              img={i.sprites.other.dream_world.front_default}
-              type1={i.types[0].type.name}
-              type2={i?.types[1]?.type.name}
-              onCapture={() => captureHandler(i)}
-              captureList={captList.some((p) => p.name === i.name)}
-            />
-          );
-        })}
-      </div>
-      <button id="add-pokemon" onClick={catchPoke}>
-        Load More Pokemons
-      </button>
+      <div className="head-text">Pokedex Init</div>
+      <input type="text" placeholder="find pokemon"></input>
+      <DropDownMenu select={select} setSelect={setSelect} />
+      {(() => {
+        switch (select) {
+          case "All":
+            return (
+              <CardContainer
+                captureHandler={captureHandler}
+                captList={captured}
+                style={{ display: "hidden" }}
+                captured={captured}
+                poke={poke}
+                catchPoke={catchPoke}
+              />
+            );
+          case "Captured":
+            return (
+              <Captured captureHandler={captureHandler} captList={captured} />
+            );
+          case "Not Captured":
+            return (
+              <NotCaptured
+                captList={captured}
+                captureHandler={captureHandler}
+                notCaptured={notCaptured}
+              />
+            );
+        }
+      })()}
     </>
   );
 };
-
-export default Home;

@@ -3,8 +3,12 @@ import axios from "axios";
 import { Captured } from "./components/Captured";
 import DropDownMenu from "./components/DropDownMenu";
 import "./css/app.css";
-import Home from "./pages/Home";
+import CardContainer from "./components/CardContainer";
 import NotCaptured from "./components/NotCaptured";
+import { SinglePoke } from "./pages/SinglePoke";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Card from "./components/Card";
+import { Home } from "./pages/Home";
 
 function App() {
   const [captured, setCaptured] = useState([]);
@@ -63,36 +67,25 @@ function App() {
   // };
   return (
     <>
-      <div className="head-text">Pokedex Init</div>
-      <input type="text" placeholder="find pokemon"></input>
-      <DropDownMenu select={select} setSelect={setSelect} />
-      {(() => {
-        switch (select) {
-          case "All":
-            return (
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
               <Home
+                select={select}
+                setSelect={setSelect}
                 captureHandler={captureHandler}
-                captList={captured}
-                style={{ display: "hidden" }}
                 captured={captured}
                 poke={poke}
                 catchPoke={catchPoke}
-              />
-            );
-          case "Captured":
-            return (
-              <Captured captureHandler={captureHandler} captList={captured} />
-            );
-          case "Not Captured":
-            return (
-              <NotCaptured
-                captList={captured}
-                captureHandler={captureHandler}
                 notCaptured={notCaptured}
               />
-            );
-        }
-      })()}
+            }
+          ></Route>
+          <Route path="/:pokeName" element={<SinglePoke />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
