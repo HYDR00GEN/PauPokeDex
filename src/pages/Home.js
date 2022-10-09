@@ -45,6 +45,11 @@ export const Home = ({
             );
         }
       })()}
+      <footer>
+        {" "}
+        made with &hearts; by{" "}
+        <a href="https://www.linkedin.com/in/paunas-ovidiu/">ovidiu paunas</a>
+      </footer>
     </>
   );
 };

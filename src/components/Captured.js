@@ -1,9 +1,17 @@
 import Card from "./Card";
+import { createUseStyles } from "react-jss";
+const useStyles = createUseStyles(() => ({
+  capturedDiv: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
 export const Captured = ({ captList, captureHandler }) => {
+  const classes = useStyles();
   return (
     <>
       {captList != 0 ? (
-        <div className="captured-div" style={{ display: "flex" }}>
+        <div className={classes.capturedDiv}>
           {captList.map((i) => (
             <Card
               key={i.name}

@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Captured } from "./components/Captured";
-import DropDownMenu from "./components/DropDownMenu";
-import "./css/app.css";
-import CardContainer from "./components/CardContainer";
-import NotCaptured from "./components/NotCaptured";
 import { SinglePoke } from "./pages/SinglePoke";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Card from "./components/Card";
 import { Home } from "./pages/Home";
 
 function App() {
