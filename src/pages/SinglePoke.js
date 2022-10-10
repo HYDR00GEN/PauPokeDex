@@ -209,19 +209,21 @@ export const SinglePoke = ({ captureHandler, captured }) => {
                 <h4>ABILITIES</h4>
                 <div className={classes.abilities}>
                   {detailPoke.abilities.map((i) => {
-                    return <p>{i.ability.name}</p>;
+                    return <p key={i.ability.name}>{i.ability.name}</p>;
                   })}
                 </div>
               </div>
               <h4>STATS</h4>
-              <div className={classes.wrapperStats}>
+              <div key={detailPoke.id} className={classes.wrapperStats}>
                 <div className={classes.divStats}>
                   {detailPoke.stats.map((i) => {
                     return (
                       <>
-                        <div className={classes.statsContainer}>
-                          <div className={classes.statType}>{i.stat.name}</div>
-                          <h4>{i.base_stat}</h4>
+                        <div key={i} className={classes.statsContainer}>
+                          <div key={i.stat.name} className={classes.statType}>
+                            {i.stat.name}
+                          </div>
+                          <h4 key={i.base_stat}>{i.base_stat}</h4>
                         </div>
                       </>
                     );

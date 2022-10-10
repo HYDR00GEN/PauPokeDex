@@ -25,7 +25,6 @@ const useStyles = createUseStyles(() => ({
 }));
 
 export default function NotCaptured({
-  notCaptured,
   captList,
   captureHandler,
   poke,
