@@ -35,7 +35,6 @@ const useStyles = createUseStyles(() => ({
     padding: 5,
   },
 }));
-
 const Card = ({ id, name, img, type1, type2, onCapture, captureList }) => {
   const classes = useStyles();
   return (

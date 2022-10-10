@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import { createUseStyles } from "react-jss";
+import { CaptureIcon, ReleaseIcon } from "../assets/Icons";
 
 const useStyles = createUseStyles(() => ({
   wrapperDetails: {
@@ -115,8 +116,7 @@ const useStyles = createUseStyles(() => ({
     cursor: "pointer",
   },
 }));
-
-export const SinglePoke = () => {
+export const SinglePoke = ({ captureHandler, captured }) => {
   const { pokeName } = useParams();
   const [detailPoke, setDetailPoke] = useState();
   const [species, setSpecies] = useState();
@@ -220,6 +220,24 @@ export const SinglePoke = () => {
               <Link to={"/"}>
                 <button className={classes.btn}>back</button>
               </Link>
+              <div
+                className={classes.divCatch}
+                onClick={() => captureHandler(detailPoke)}
+              >
+                <a>
+                  {!captured.some((i) => i.name === pokeName) ? (
+                    <CaptureIcon />
+                  ) : (
+                    <ReleaseIcon />
+                  )}
+                </a>
+                <p>
+                  {!captured.some((i) => i.name === pokeName)
+                    ? "capture"
+                    : "release"}
+                </p>
+                {console.log("render")}
+              </div>
             </div>
           </>
         )}

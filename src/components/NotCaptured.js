@@ -54,7 +54,7 @@ export default function NotCaptured({
             })}
           </div>
         ) : (
-          <div className={classes.nothingWrapper}>
+          <div className={classes.capturedDiv}>
             {/* <div className={classes.nothing}>All Captured</div> */}
             {poke.map((i) => {
               return (

@@ -11,7 +11,7 @@ function App() {
   const [next, setNext] = useState("https://pokeapi.co/api/v2/pokemon");
 
   const capturedArray = JSON.parse(localStorage.getItem("captured") || "0");
-  const notCaptured = poke.filter((i) => !captured.includes(i));
+
   function getDifference(array1, array2) {
     return array1.filter((object1) => {
       return !array2.some((object2) => {
@@ -23,7 +23,7 @@ function App() {
     ...getDifference(poke, captured),
     ...getDifference(captured, poke),
   ];
-  console.log(difference);
+
   const catchPoke = () => {
     axios
       .get(next)
@@ -79,12 +79,21 @@ function App() {
                 captured={captured}
                 poke={poke}
                 catchPoke={catchPoke}
-                notCaptured={notCaptured}
                 difference={difference}
               />
             }
           ></Route>
-          <Route path="/:pokeName" element={<SinglePoke />}></Route>
+          <Route
+            path="/:pokeName"
+            element={
+              <>
+                <SinglePoke
+                  captureHandler={captureHandler}
+                  captured={captured}
+                />
+              </>
+            }
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
