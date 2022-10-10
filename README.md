@@ -13,3 +13,5 @@
 ### by default should open on port 3000
 
 `http://localhost:3000`
+
+> development & tests made with opera gx browser
