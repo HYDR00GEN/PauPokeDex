@@ -60,7 +60,7 @@ const Card = ({ id, name, img, type1, type2, onCapture, captureList }) => {
       </div>
       <div className={classes.divCatch} onClick={onCapture}>
         <a>{!captureList ? <CaptureIcon /> : <ReleaseIcon />}</a>
-        <p>{!captureList ? "capture" : "release"}</p>
+        <p>{!captureList ? "catch" : "release"}</p>
       </div>
     </div>
   );

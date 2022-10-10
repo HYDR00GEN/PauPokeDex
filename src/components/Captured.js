@@ -13,7 +13,7 @@ const useStyles = createUseStyles(() => ({
     flexWrap: "wrap",
     justifyContent: "space-evenly",
     gap: 12,
-    maxWidth: 676,
+    maxWidth: 800,
   },
   nothingWrapper: {
     display: "flex",

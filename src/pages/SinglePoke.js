@@ -12,19 +12,15 @@ const useStyles = createUseStyles(() => ({
     alignItems: "center",
     height: "100vh",
     justifyContent: "center",
-    backgroundColor:
-      "linear-gradient(180deg, rgb(150 150 150) 0%, rgb(255 255 255 / 86%) 100%)",
+    backgroundColor: "#e6e6e6",
   },
   containerDetails: {
-    minWidth: 620,
+    minWidth: 685,
     maxHeight: 650,
     fontSize: 16,
     alignItems: "stretch",
     display: "flex",
     flexDirection: "row-reverse",
-    "@media screen and (max-width: 400px)": {
-      display: "",
-    },
   },
   rightPanel: {
     boxShadow: "2px 2px 10px #D9DADE",
@@ -36,7 +32,7 @@ const useStyles = createUseStyles(() => ({
     justifyContent: "space-between",
     borderRadius: 24,
     padding: 21,
-    backgroundColor: "#2a75bb",
+    backgroundColor: "#4987d8d6",
   },
   divInfo: {
     display: "flex",
@@ -62,14 +58,14 @@ const useStyles = createUseStyles(() => ({
     justifyContent: "space-evenly",
   },
   leftPanel: {
-    backgroundColor: "#fac705",
+    backgroundColor: "#fac705cf",
     boxShadow: "2px 2px 10px #D9DADE",
     alignItems: "center",
     display: "flex",
     flexFlow: "column wrap",
     justifyContent: "space-evenly",
     borderRadius: 24,
-    padding: 12,
+    padding: 18,
   },
 
   divStats: {
@@ -103,6 +99,21 @@ const useStyles = createUseStyles(() => ({
     padding: 6,
     backgroundColor: "#ffffff6b",
     borderRadius: 245,
+  },
+  wrapperBtns: {
+    flexDirection: "column-reverse",
+    alignItems: "center",
+    display: "flex",
+  },
+  catch: {
+    padding: 6,
+    width: 90,
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
+    background:
+      "linear-gradient(180deg, #30303054 0%, rgba(255,255,255,0) 100%)",
+    borderRadius: 12,
   },
   btn: {
     width: "fit-content",
@@ -217,26 +228,29 @@ export const SinglePoke = ({ captureHandler, captured }) => {
                   })}
                 </div>
               </div>
-              <Link to={"/"}>
-                <button className={classes.btn}>back</button>
-              </Link>
-              <div
-                className={classes.divCatch}
-                onClick={() => captureHandler(detailPoke)}
-              >
-                <a>
-                  {!captured.some((i) => i.name === pokeName) ? (
-                    <CaptureIcon />
-                  ) : (
-                    <ReleaseIcon />
-                  )}
-                </a>
-                <p>
-                  {!captured.some((i) => i.name === pokeName)
-                    ? "capture"
-                    : "release"}
-                </p>
-                {console.log("render")}
+              <div className={classes.wrapperBtns}>
+                <Link to={"/"}>
+                  <button className={classes.btn}>back</button>
+                </Link>
+                <div
+                  className={classes.catch}
+                  onClick={() => captureHandler(detailPoke)}
+                >
+                  <div className={classes.divCatch}>
+                    <a>
+                      {!captured.some((i) => i.name === pokeName) ? (
+                        <CaptureIcon />
+                      ) : (
+                        <ReleaseIcon />
+                      )}
+                    </a>
+                    <p>
+                      {!captured.some((i) => i.name === pokeName)
+                        ? "catch"
+                        : "release"}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </>
