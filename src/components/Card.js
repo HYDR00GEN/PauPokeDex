@@ -48,7 +48,6 @@ const Card = ({ id, name, img, type1, type2, onCapture, captureList }) => {
         <img src={img} alt="pokemon" style={{ width: "100px", height: 100 }} />
       </Link>
       <div className={classes.types}>
-        {/* <div className={classes.styleType}>{type2}</div> */}
         {type1 && type2 ? (
           <>
             <div className={classes.styleType}>{type1}</div>

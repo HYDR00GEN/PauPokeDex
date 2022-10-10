@@ -4,9 +4,6 @@ import CardContainer from "../components/CardContainer";
 import { Captured } from "../components/Captured";
 import NotCaptured from "../components/NotCaptured";
 import { createUseStyles } from "react-jss";
-import { SinglePoke } from "./SinglePoke";
-import axios from "axios";
-
 const useStyles = createUseStyles(() => ({
   footer: {
     fontSize: 12,

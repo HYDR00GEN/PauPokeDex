@@ -10,6 +10,6 @@
 
 `npm start`
 
-### by deafult should open on port 3000
+### by default should open on port 3000
 
 `http://localhost:3000`
