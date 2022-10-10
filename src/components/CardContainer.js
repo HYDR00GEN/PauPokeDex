@@ -6,7 +6,8 @@ const useStyles = createUseStyles(() => ({
   dashboard: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#a8a8a8",
+    background:
+      "linear-gradient(180deg, rgba(230,230,230,1) 0%, rgba(255,255,255,0) 100%)",
   },
   cardWrapper: {
     padding: 28,
@@ -15,6 +16,22 @@ const useStyles = createUseStyles(() => ({
     justifyContent: "space-evenly",
     gap: 12,
     maxWidth: 676,
+  },
+  btnWrapper: {
+    backgroundColor: "white",
+    padding: 48,
+    display: "flex",
+    justifyContent: "center",
+  },
+  button: {
+    borderRadius: "36px",
+    backgroundColor: "#2F80ED",
+    border: "none",
+    padding: "8px 22px",
+    fontSize: "14px",
+    color: "white",
+    fontWeight: "600",
+    cursor: "pointer",
   },
 }));
 
@@ -27,6 +44,7 @@ const CardContainer = ({ captList, captureHandler, poke, catchPoke }) => {
           {poke.map((i) => {
             return (
               <Card
+                key={i.id}
                 id={i.id}
                 name={i.name}
                 img={i.sprites.other.dream_world.front_default}
@@ -39,9 +57,11 @@ const CardContainer = ({ captList, captureHandler, poke, catchPoke }) => {
           })}
         </div>
       </div>
-      <button id="add-pokemon" onClick={catchPoke}>
-        Load More Pokemons
-      </button>
+      <div className={classes.btnWrapper}>
+        <button className={classes.button} onClick={catchPoke}>
+          Load More Pokemons
+        </button>
+      </div>
     </>
   );
 };

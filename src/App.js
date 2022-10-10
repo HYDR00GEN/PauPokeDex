@@ -12,18 +12,18 @@ function App() {
 
   const capturedArray = JSON.parse(localStorage.getItem("captured") || "0");
   const notCaptured = poke.filter((i) => !captured.includes(i));
-
-  useEffect(() => {
-    catchPoke();
-    if (capturedArray !== 0) {
-      setCaptured(capturedArray);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("captured", JSON.stringify(captured));
-  }, [captured]);
-
+  function getDifference(array1, array2) {
+    return array1.filter((object1) => {
+      return !array2.some((object2) => {
+        return object1.id === object2.id;
+      });
+    });
+  }
+  const difference = [
+    ...getDifference(poke, captured),
+    ...getDifference(captured, poke),
+  ];
+  console.log(difference);
   const catchPoke = () => {
     axios
       .get(next)
@@ -54,11 +54,17 @@ function App() {
     }
   };
 
-  // should i implement clear all captured?
-  // const releasePoke = () => {
-  //   localStorage.removeItem("captured");
-  //   setCaptured([]);
-  // };
+  useEffect(() => {
+    catchPoke();
+    if (capturedArray !== 0) {
+      setCaptured(capturedArray);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("captured", JSON.stringify(captured));
+  }, [captured]);
+
   return (
     <>
       <BrowserRouter>
@@ -74,6 +80,7 @@ function App() {
                 poke={poke}
                 catchPoke={catchPoke}
                 notCaptured={notCaptured}
+                difference={difference}
               />
             }
           ></Route>
